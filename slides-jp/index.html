@@ -200,7 +200,7 @@ $$ N(t) = N_0 \left(1-\lambda \Delta t\right)^n = N_0 \left(1-\dfrac{\lambda t}{
 
 <div class="simple-box">
 
-* $\Delta t \to 0$, $n \to \infty$の極限を取ると、
+* $\Delta t \to 0$の時, $t = n \Delta t$となるように$n$を取ると:
 
 $$ N(t) = N_0 e^{-\lambda t} $$
 
@@ -247,8 +247,8 @@ $$ T_{1/2} = \frac{\ln 2}{\lambda} $$
 <div class="simple-box">
 
 * ガーゼの上に1滴のインクを零したとしよう
-* インクはガーゼの中を拡散していく
-* 時間が経つと、インクはガーゼの中に均等に広がる
+* インクの染みは最初は零した場所の付近だけ
+* 時間が経つとインクはガーゼの中を拡散していく
 
 </div>
 
@@ -315,8 +315,22 @@ $$ \rho(t, x) = \frac{1}{\sqrt{4 \pi D t}} \exp\left(-\frac{x^2}{4 D t}\right) $
 
 </div>
 
-$$ \rho(t+\Delta t, x) =  a\rho(t, x) - 2pa\rho(t, x) $$
-$$+ pa\rho(t, x+a) + pa\rho(t, x-a) $$
+$$ \rho(\Delta t, x) =  \rho(0, x) - 2p\rho(0, x) $$
+$$+ p\rho(0, x+a) + p\rho(0, x-a) $$
+
+---
+
+### 同じ操作を繰り返すと？
+
+<div class="simple-box">
+
+* 時刻$t$でのボールの密度を$\rho(t, x)$とする
+* 時刻$t+\Delta t$でのボールの密度は:
+
+</div>
+
+$$ \rho(t+\Delta t, x) =  \rho(t, x) - 2p\rho(t, x) $$
+$$+ p\rho(t, x+a) + p\rho(t, x-a) $$
 
 ---
 
@@ -329,7 +343,7 @@ $$+ pa\rho(t, x+a) + pa\rho(t, x-a) $$
 </div>
 
 * 時間微分に対して
-$$ \rho(t+\Delta t, x) = a\rho(t, x) + \Delta t \frac{\partial \rho(t, x)}{\partial t} + O(\Delta t^2) $$
+$$ \rho(t+\Delta t, x) = \rho(t, x) + \Delta t \frac{\partial \rho(t, x)}{\partial t} + O(\Delta t^2) $$
 
 * 空間微分に対して
 $$ \rho(t, x \pm a) = \rho(t, x) \pm a \frac{\partial \rho(t, x)}{\partial x} + \frac{a^2}{2} \frac{\partial^2 \rho(t, x)}{\partial x^2} + O(a^3) $$
@@ -342,7 +356,7 @@ $$ \rho(t, x \pm a) = \rho(t, x) \pm a \frac{\partial \rho(t, x)}{\partial x} + 
 <div class="simple-box">
 
 * テイラー展開の式をボールの密度の式に代入:
-  * ここで$D = \frac{pa^2}{2\Delta t}$とした
+  * ここで$\Delta t \to 0$の時: $D = \frac{pa^2}{\Delta t}$に収束するとする
 
 </div>
 
@@ -364,7 +378,7 @@ $$ \rho(t, x) = \frac{1}{\sqrt{4 \pi D t}} \exp\left(-\frac{x^2}{4 D t}\right) $
 * 拡散係数$D$は拡散の速さを表す
 * 拡散係数が大きいほど拡散が速い
 * 確率$p$が大きいほど拡散係数は大きくなる
-* 時間間隔$\Delta t \to 0$の時、拡散係数は$D$に収束するように$a$は動くとした
+* 時間間隔$\Delta t \to 0$の時、拡散係数$\displaystyle D = \lim_{\Delta t \to 0} \dfrac{pa^2}{\Delta t}$に収束するよう$a$が振る舞うと仮定した
 
 </div>
 
@@ -391,12 +405,37 @@ $$ \rho(t, x) = \frac{1}{\sqrt{4 \pi D t}} \exp\left(-\frac{x^2}{4 D t}\right) $
 * サイコロの目によってボールを移動させるゲームで物理現象を再現！
   * 原子核崩壊
   * 拡散現象
-* シンプルなモデルで本質を理解できる！
+* **シンプルなモデルで物理の本質を理解できる！**
 * より複雑な物理現象もシンプルなモデルで理解される例がある
-  * イジングモデル、パーコレーション理論...
-* **あなたも面白いモデルを考えてみませんか？**
+  * とてもおめでたいニュースを紹介します！
 
 </div>
+
+---
+
+### 🎉2025年ボルツマンメダル🎖️
+
+<div class="simple-box">
+
+* [蔵本由紀先生が2025年のボルツマンメダルを受賞しました！](https://www.sci.kyoto-u.ac.jp/ja/news-427)
+* 蔵本モデルは物理だけでなく生物学や工学、社会科学に応用されているそうです
+* [メトロノームが揃っていく動画](https://www.youtube.com/watch?v=6bU9ZPIm3fc)が面白いです！
+
+</div>
+
+<img src="assets/images/Kuramoto-sensei.jpg" height="365px">
+
+
+
+---
+
+### 参考文献
+
+- A. Murray and I. Hart, [The 'radioactive dice' experiment: why is the 'half-life' slightly wrong?](https://iopscience.iop.org/article/10.1088/0031-9120/47/2/197), DOI 10.1088/0031-9120/47/2/197
+  - 十分な試行回数があればサイコロゲームで原子核崩壊を再現できることを解説した論文です
+
+- 田崎晴明, [ブラウン運動と非平衡統計力学](http://www.gakushuin.ac.jp/~881791/docs/BMNESM.pdf)
+  - ブラウン運動による拡散現象の説明がとてもわかりやすいです
 
 ---
 
